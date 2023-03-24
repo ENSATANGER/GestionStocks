@@ -49,3 +49,6 @@ D:\Jawad\GINF 2\S2\NoSql\Project\GestionStocks\GestionStocks\bin\Debug\System.Th
 D:\Jawad\GINF 2\S2\NoSql\Project\GestionStocks\GestionStocks\obj\Debug\GestionStocks.csproj.CopyComplete
 D:\Jawad\GINF 2\S2\NoSql\Project\GestionStocks\GestionStocks\obj\Debug\GestionStocks.exe
 D:\Jawad\GINF 2\S2\NoSql\Project\GestionStocks\GestionStocks\obj\Debug\GestionStocks.pdb
+D:\Jawad\GINF 2\S2\NoSql\Project\GestionStocks\GestionStocks\obj\Debug\GestionStocks.MDI.resources
+D:\Jawad\GINF 2\S2\NoSql\Project\GestionStocks\GestionStocks\obj\Debug\GestionStocks.csproj.GenerateResource.cache
+D:\Jawad\GINF 2\S2\NoSql\Project\GestionStocks\GestionStocks\obj\Debug\GestionStocks.GestionCategories.resources

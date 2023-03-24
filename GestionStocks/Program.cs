@@ -8,14 +8,16 @@ namespace GestionStocks
     {
         static async Task Main(string[] args)
         {
-            Connection con = new Connection();
-            con.getCollection<Categorie>("hhh");
+            (new MDI()).ShowDialog();
+            /*Categorie categorie = new Categorie( "Informatique", "pc + écran + clavier");
+            *//*await categorie.Create();*//*
 
-            /*Categorie categorie = new Categorie { nom = "Informatique", description = "pc + écran + clavier" };
+            foreach(Categorie value in Categorie.Select())
+                Console.WriteLine(value.nom+" ; "+value.description);*/
 
             //Asynchronous operations in C# allow you to perform non-blocking operations
             // the await keyword allows the calling code to wait for the completion of this operation before proceeding.
-            await collection.InsertOneAsync(categorie);
+            /*await collection.InsertOneAsync(categorie);
 
             var results = await collection.FindAsync(_ => true);
 

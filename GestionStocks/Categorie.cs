@@ -3,15 +3,16 @@ using MongoDB.Bson;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using System;
 
 namespace GestionStocks
 {
     class Categorie
     {
-        Connection conn = null;
+        private static Connection conn = new Connection();
 
         // collection that allow as to call crud methods
-        private IMongoCollection<Categorie> collection = null;
+        private static IMongoCollection<Categorie> collection = conn.getCollection<Categorie>("Categories");
 
         // indicates that the "Id" property is the primary key
         [BsonId]
@@ -21,38 +22,55 @@ namespace GestionStocks
         public string nom { get; set; }
         public string description { get; set; }
 
+        public Categorie() { }
         public Categorie(string nom, string description)
         {
-            conn = new Connection();
             this.nom = nom;
             this.description = description;
-            collection = conn.getCollection<Categorie>("Categories"); 
         }
 
         //Using a Task return type in a method declaration is a way to indicate that
         //the method will perform some asynchronous operation and return a Task object 
         //A Task object represents an asynchronous operation that can be monitored
-        public Task Create(Categorie categorie)
+        public Task Create()
         {
-            if(Select(categorie.nom).Count != 0)
-                return collection.InsertOneAsync(categorie);
+            if(select().Count == 0)
+                return collection.InsertOneAsync(this);
             return null;
         }
         
-        public Task Update(Categorie categorie)
+        public Task Update()
         {
-            var filter = Builders<Categorie>.Filter.Eq("Id", categorie.Id);
+            var filter = Builders<Categorie>.Filter.Eq("Id", Id);
             //IsUpsert = true means that if it doesn't exist insert it
-            return collection.ReplaceOneAsync(filter,categorie, new ReplaceOptions { IsUpsert = false});
+            return collection.ReplaceOneAsync(filter,this);
         }
-
-        public List<Categorie> Select(string nom)
+        public Task Delete()
+        {
+            if (select().Count != 0)
+                return collection.DeleteOneAsync(c => c.Id == Id);
+            return null;
+        }
+        public List<Categorie> select()
         {
             var filter = Builders<Categorie>.Filter.Eq("nom", nom);
             var result =  collection.Find(filter);
             return result.ToList();
         }
 
+        //search using like %
+        public List<Categorie> search(string nom)
+        {
+            var regex = new BsonRegularExpression(".*" + nom + ".*", "i"); // "i" makes it case-insensitive
+            var filter = Builders<Categorie>.Filter.Regex("nom", regex);
+            var result = collection.Find(filter);
+            return result.ToList();
+        }
+        public static List<Categorie> Select()
+        {
+            var result = collection.Find(_=>true);
+            return result.ToList();
+        }
 
     }
 }

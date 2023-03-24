@@ -22,10 +22,8 @@ namespace GestionStocks
             IAsyncCursor<string> collections = database.ListCollectionNames();
             foreach (string name in collections.ToList())
             {
-                Console.WriteLine(name);
                 if (name == collectionName)
                 {
-                    Console.WriteLine(collectionName);
                     return database.GetCollection<T>(collectionName);
                 }
             }
