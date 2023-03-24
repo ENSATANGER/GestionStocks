@@ -125,5 +125,10 @@ namespace GestionStocks
             else
                 MessageBox.Show("Erreur! choisir depuis la table");
         }
+
+        private void ListCategories_Click(object sender, EventArgs e)
+        {
+            Initializer();
+        }
     }
 }

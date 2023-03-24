@@ -40,6 +40,7 @@
             this.NomCategories = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescriptionCategories = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ListCategories = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CategoriesTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,7 +125,7 @@
             this.NomCategories,
             this.Id,
             this.DescriptionCategories});
-            this.CategoriesTable.Location = new System.Drawing.Point(122, 175);
+            this.CategoriesTable.Location = new System.Drawing.Point(131, 220);
             this.CategoriesTable.Name = "CategoriesTable";
             this.CategoriesTable.Size = new System.Drawing.Size(535, 177);
             this.CategoriesTable.TabIndex = 8;
@@ -150,12 +151,23 @@
             this.DescriptionCategories.ReadOnly = true;
             this.DescriptionCategories.Width = 340;
             // 
+            // ListCategories
+            // 
+            this.ListCategories.Location = new System.Drawing.Point(131, 188);
+            this.ListCategories.Name = "ListCategories";
+            this.ListCategories.Size = new System.Drawing.Size(158, 26);
+            this.ListCategories.TabIndex = 9;
+            this.ListCategories.Text = "Listes Categories";
+            this.ListCategories.UseVisualStyleBackColor = true;
+            this.ListCategories.Click += new System.EventHandler(this.ListCategories_Click);
+            // 
             // GestionCategories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.ListCategories);
             this.Controls.Add(this.CategoriesTable);
             this.Controls.Add(this.buttonRechercher);
             this.Controls.Add(this.buttonSupprimer);
@@ -189,5 +201,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NomCategories;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescriptionCategories;
+        private System.Windows.Forms.Button ListCategories;
     }
 }
