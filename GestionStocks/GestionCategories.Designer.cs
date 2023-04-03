@@ -47,42 +47,47 @@
             // CategorieNomlabel
             // 
             this.CategorieNomlabel.AutoSize = true;
-            this.CategorieNomlabel.Location = new System.Drawing.Point(108, 36);
+            this.CategorieNomlabel.Location = new System.Drawing.Point(162, 55);
+            this.CategorieNomlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CategorieNomlabel.Name = "CategorieNomlabel";
-            this.CategorieNomlabel.Size = new System.Drawing.Size(29, 13);
+            this.CategorieNomlabel.Size = new System.Drawing.Size(42, 20);
             this.CategorieNomlabel.TabIndex = 0;
             this.CategorieNomlabel.Text = "Nom";
             // 
             // CategorieDesclabel
             // 
             this.CategorieDesclabel.AutoSize = true;
-            this.CategorieDesclabel.Location = new System.Drawing.Point(108, 99);
+            this.CategorieDesclabel.Location = new System.Drawing.Point(162, 152);
+            this.CategorieDesclabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CategorieDesclabel.Name = "CategorieDesclabel";
-            this.CategorieDesclabel.Size = new System.Drawing.Size(60, 13);
+            this.CategorieDesclabel.Size = new System.Drawing.Size(89, 20);
             this.CategorieDesclabel.TabIndex = 1;
             this.CategorieDesclabel.Text = "Description";
             // 
             // NomText
             // 
-            this.NomText.Location = new System.Drawing.Point(200, 29);
+            this.NomText.Location = new System.Drawing.Point(300, 45);
+            this.NomText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NomText.Name = "NomText";
-            this.NomText.Size = new System.Drawing.Size(198, 20);
+            this.NomText.Size = new System.Drawing.Size(295, 26);
             this.NomText.TabIndex = 2;
             // 
             // DescriptionText
             // 
-            this.DescriptionText.Location = new System.Drawing.Point(200, 68);
+            this.DescriptionText.Location = new System.Drawing.Point(300, 105);
+            this.DescriptionText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DescriptionText.Multiline = true;
             this.DescriptionText.Name = "DescriptionText";
             this.DescriptionText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.DescriptionText.Size = new System.Drawing.Size(236, 79);
+            this.DescriptionText.Size = new System.Drawing.Size(352, 119);
             this.DescriptionText.TabIndex = 3;
             // 
             // buttonAjouter
             // 
-            this.buttonAjouter.Location = new System.Drawing.Point(492, 17);
+            this.buttonAjouter.Location = new System.Drawing.Point(738, 26);
+            this.buttonAjouter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonAjouter.Name = "buttonAjouter";
-            this.buttonAjouter.Size = new System.Drawing.Size(158, 26);
+            this.buttonAjouter.Size = new System.Drawing.Size(237, 40);
             this.buttonAjouter.TabIndex = 4;
             this.buttonAjouter.Text = "Ajouter";
             this.buttonAjouter.UseVisualStyleBackColor = true;
@@ -90,9 +95,10 @@
             // 
             // buttonModifier
             // 
-            this.buttonModifier.Location = new System.Drawing.Point(492, 49);
+            this.buttonModifier.Location = new System.Drawing.Point(738, 75);
+            this.buttonModifier.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonModifier.Name = "buttonModifier";
-            this.buttonModifier.Size = new System.Drawing.Size(158, 29);
+            this.buttonModifier.Size = new System.Drawing.Size(237, 45);
             this.buttonModifier.TabIndex = 5;
             this.buttonModifier.Text = "Modifier";
             this.buttonModifier.UseVisualStyleBackColor = true;
@@ -100,9 +106,10 @@
             // 
             // buttonSupprimer
             // 
-            this.buttonSupprimer.Location = new System.Drawing.Point(492, 118);
+            this.buttonSupprimer.Location = new System.Drawing.Point(738, 182);
+            this.buttonSupprimer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonSupprimer.Name = "buttonSupprimer";
-            this.buttonSupprimer.Size = new System.Drawing.Size(158, 29);
+            this.buttonSupprimer.Size = new System.Drawing.Size(237, 45);
             this.buttonSupprimer.TabIndex = 6;
             this.buttonSupprimer.Text = "Supprimer";
             this.buttonSupprimer.UseVisualStyleBackColor = true;
@@ -110,9 +117,10 @@
             // 
             // buttonRechercher
             // 
-            this.buttonRechercher.Location = new System.Drawing.Point(492, 84);
+            this.buttonRechercher.Location = new System.Drawing.Point(738, 129);
+            this.buttonRechercher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonRechercher.Name = "buttonRechercher";
-            this.buttonRechercher.Size = new System.Drawing.Size(158, 28);
+            this.buttonRechercher.Size = new System.Drawing.Size(237, 43);
             this.buttonRechercher.TabIndex = 7;
             this.buttonRechercher.Text = "Rechercher";
             this.buttonRechercher.UseVisualStyleBackColor = true;
@@ -125,15 +133,18 @@
             this.NomCategories,
             this.Id,
             this.DescriptionCategories});
-            this.CategoriesTable.Location = new System.Drawing.Point(131, 220);
+            this.CategoriesTable.Location = new System.Drawing.Point(196, 338);
+            this.CategoriesTable.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CategoriesTable.Name = "CategoriesTable";
-            this.CategoriesTable.Size = new System.Drawing.Size(535, 177);
+            this.CategoriesTable.RowHeadersWidth = 62;
+            this.CategoriesTable.Size = new System.Drawing.Size(802, 272);
             this.CategoriesTable.TabIndex = 8;
             this.CategoriesTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategoriesTable_CellClick);
             // 
             // NomCategories
             // 
             this.NomCategories.HeaderText = "Nom";
+            this.NomCategories.MinimumWidth = 8;
             this.NomCategories.Name = "NomCategories";
             this.NomCategories.ReadOnly = true;
             this.NomCategories.Width = 150;
@@ -141,21 +152,25 @@
             // Id
             // 
             this.Id.HeaderText = "id";
+            this.Id.MinimumWidth = 8;
             this.Id.Name = "Id";
             this.Id.Visible = false;
+            this.Id.Width = 150;
             // 
             // DescriptionCategories
             // 
             this.DescriptionCategories.HeaderText = "Description";
+            this.DescriptionCategories.MinimumWidth = 8;
             this.DescriptionCategories.Name = "DescriptionCategories";
             this.DescriptionCategories.ReadOnly = true;
             this.DescriptionCategories.Width = 340;
             // 
             // ListCategories
             // 
-            this.ListCategories.Location = new System.Drawing.Point(131, 188);
+            this.ListCategories.Location = new System.Drawing.Point(196, 289);
+            this.ListCategories.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ListCategories.Name = "ListCategories";
-            this.ListCategories.Size = new System.Drawing.Size(158, 26);
+            this.ListCategories.Size = new System.Drawing.Size(237, 40);
             this.ListCategories.TabIndex = 9;
             this.ListCategories.Text = "Listes Categories";
             this.ListCategories.UseVisualStyleBackColor = true;
@@ -163,9 +178,9 @@
             // 
             // GestionCategories
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.ControlBox = false;
             this.Controls.Add(this.ListCategories);
             this.Controls.Add(this.CategoriesTable);
@@ -178,9 +193,11 @@
             this.Controls.Add(this.CategorieDesclabel);
             this.Controls.Add(this.CategorieNomlabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "GestionCategories";
             this.ShowIcon = false;
             this.Text = "GestionCategories";
+            this.Load += new System.EventHandler(this.GestionCategories_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CategoriesTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

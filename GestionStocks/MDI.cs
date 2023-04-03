@@ -21,5 +21,15 @@ namespace GestionStocks
         {
             (new GestionCategories(this)).Show();
         }
+
+        private void MDI_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new GestionClients(this).Show();
+        }
     }
 }

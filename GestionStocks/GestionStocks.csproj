@@ -152,12 +152,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categorie.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="GestionCategories.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GestionCategories.Designer.cs">
       <DependentUpon>GestionCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionClients.Designer.cs">
+      <DependentUpon>GestionClients.cs</DependentUpon>
     </Compile>
     <Compile Include="MDI.cs">
       <SubType>Form</SubType>
@@ -183,6 +190,9 @@
   <ItemGroup>
     <EmbeddedResource Include="GestionCategories.resx">
       <DependentUpon>GestionCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionClients.resx">
+      <DependentUpon>GestionClients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI.resx">
       <DependentUpon>MDI.cs</DependentUpon>
