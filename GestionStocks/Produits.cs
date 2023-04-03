@@ -27,10 +27,11 @@ namespace GestionStocks
         public int quantite { get; set; }
 
         public Produits() { }
-        public Produits( string nom, string description, float prix, float poids, int quantite)
+        public Produits( string nom,string categorie, string description, float prix, float poids, int quantite)
         {
             
             this.nom = nom;
+            this.categorie = categorie;
             this.description = description;
             this.prix = prix;
             this.poids = poids;

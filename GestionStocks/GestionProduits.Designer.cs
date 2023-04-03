@@ -56,7 +56,6 @@
             this.tnom.Name = "tnom";
             this.tnom.Size = new System.Drawing.Size(236, 20);
             this.tnom.TabIndex = 0;
-            this.tnom.TextChanged += new System.EventHandler(this.tnom_TextChanged);
             // 
             // Description
             // 
@@ -106,6 +105,7 @@
             this.Modifier.TabIndex = 10;
             this.Modifier.Text = "Modifier";
             this.Modifier.UseVisualStyleBackColor = true;
+            this.Modifier.Click += new System.EventHandler(this.Modifier_Click);
             // 
             // Supprimer
             // 
@@ -220,6 +220,7 @@
             this.ShowInTaskbar = false;
             this.Text = "GestionProduits";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.GestionProduits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nquantite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
