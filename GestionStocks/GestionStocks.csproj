@@ -159,12 +159,19 @@
     <Compile Include="GestionCategories.Designer.cs">
       <DependentUpon>GestionCategories.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionProduits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionProduits.Designer.cs">
+      <DependentUpon>GestionProduits.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDI.Designer.cs">
       <DependentUpon>MDI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Produits.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -183,6 +190,9 @@
   <ItemGroup>
     <EmbeddedResource Include="GestionCategories.resx">
       <DependentUpon>GestionCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionProduits.resx">
+      <DependentUpon>GestionProduits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI.resx">
       <DependentUpon>MDI.cs</DependentUpon>

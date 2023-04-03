@@ -181,6 +181,7 @@
             this.Name = "GestionCategories";
             this.ShowIcon = false;
             this.Text = "GestionCategories";
+            
             ((System.ComponentModel.ISupportInitialize)(this.CategoriesTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

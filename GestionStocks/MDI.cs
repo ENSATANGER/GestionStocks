@@ -21,5 +21,19 @@ namespace GestionStocks
         {
             (new GestionCategories(this)).Show();
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void produitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GestionProduits newMDIChild = new GestionProduits();
+            // Set the Parent Form of the Child window.
+            newMDIChild.MdiParent = this;
+            // Display the new form.
+            newMDIChild.Show();
+        }
     }
 }
