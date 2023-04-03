@@ -38,8 +38,9 @@ namespace GestionStocks
                 var row = new DataGridViewRow();
                 row.CreateCells(CategoriesTable);
                 row.Cells[0].Value = category.nom;
-                row.Cells[2].Value = category.description;
                 row.Cells[1].Value = category.Id;
+                row.Cells[2].Value = category.description;
+                
                 CategoriesTable.Rows.Add(row);
             }
         }
@@ -129,6 +130,11 @@ namespace GestionStocks
         private void ListCategories_Click(object sender, EventArgs e)
         {
             Initializer();
+        }
+
+        private void GestionCategories_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
