@@ -130,21 +130,16 @@ namespace GestionStocks
                 
         }
 
-        private void ProduitsTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ProduitsTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = ProduitsTable.Rows[e.RowIndex];
 
             tnom.Text = row.Cells[0].Value.ToString();
-            if(row.Cells[1].Value!=null)
-                categoriebox.Text = row.Cells[1].Value.ToString();
-            if(row.Cells[2].Value != null)
-                nquantite.Value = decimal.Parse(row.Cells[2].Value.ToString());
-            if(row.Cells[3].Value != null)
-                tpoids.Text = row.Cells[3].Value.ToString();
-            if (row.Cells[4].Value != null)
-                tprix.Text = row.Cells[4].Value.ToString();
-            if(row.Cells[5].Value != null)
-                Description.Text = row.Cells[5].Value.ToString();
+            categoriebox.Text = row.Cells[1].Value.ToString();
+            nquantite.Value = decimal.Parse(row.Cells[2].Value.ToString());
+            tpoids.Text = row.Cells[3].Value.ToString();
+            tprix.Text = row.Cells[4].Value.ToString();
+            Description.Text = row.Cells[5].Value.ToString();
 
             prod.Id = row.Cells[6].Value.ToString();
         }

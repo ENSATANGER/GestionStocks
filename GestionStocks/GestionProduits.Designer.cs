@@ -207,9 +207,9 @@
             this.Id});
             this.ProduitsTable.Location = new System.Drawing.Point(82, 247);
             this.ProduitsTable.Name = "ProduitsTable";
-            this.ProduitsTable.Size = new System.Drawing.Size(644, 191);
+            this.ProduitsTable.Size = new System.Drawing.Size(641, 191);
             this.ProduitsTable.TabIndex = 20;
-            this.ProduitsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProduitsTable_CellContentClick);
+            this.ProduitsTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProduitsTable_CellClick);
             // 
             // nom
             // 
