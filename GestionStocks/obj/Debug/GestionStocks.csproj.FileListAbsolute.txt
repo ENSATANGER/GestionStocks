@@ -107,4 +107,3 @@ C:\Users\hachg\source\repos\GestionStocks\GestionStocks\obj\Debug\GestionStocks.
 C:\Users\hachg\source\repos\GestionStocks\GestionStocks\obj\Debug\GestionStocks.exe
 C:\Users\hachg\source\repos\GestionStocks\GestionStocks\obj\Debug\GestionStocks.pdb
 C:\Users\hachg\source\repos\GestionStocks\GestionStocks\obj\Debug\GestionStocks.GestionProduits.resources
-C:\Users\hachg\source\repos\GestionStocks\GestionStocks\obj\Debug\GestionStocks.GestionClients.resources

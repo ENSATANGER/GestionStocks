@@ -19,7 +19,7 @@ namespace GestionStocks
         public GestionProduits()
         {
             InitializeComponent();
-            GestionProduits_Load();
+            
         }
 
         private void RemplireProduitsTable(List<Produits> prod)
@@ -45,35 +45,24 @@ namespace GestionStocks
 
         private void Ajouter_Click(object sender, EventArgs e)
         {
-            if(tnom.Text!=null && categoriebox.Text!=null && float.Parse(tpoids.Text)>=0 && float.Parse(tprix.Text)>=0)
+            if(!string.IsNullOrWhiteSpace(tnom.Text) && !string.IsNullOrWhiteSpace(categoriebox.Text) && float.Parse(tpoids.Text)>=0 && float.Parse(tprix.Text)>=0)
             {
                 if ((new Produits(tnom.Text,categoriebox.Text, Description.Text, float.Parse(tprix.Text), float.Parse(tpoids.Text), (int)nquantite.Value)).Create() == null)
                     MessageBox.Show("Ce produit existe deja!");
                 else
                     GestionProduits_Load();
             }
-        }
-
-        private void GestionProduits_Load()
-        {
-            tnom.Text = string.Empty;
-            Description.Text = string.Empty;
-            categoriebox.Text = string.Empty;
-            tpoids.Text = "0";
-            tprix.Text = "0";
-
-            List<Categorie> listcategories = new List<Categorie>();
-            listcategories = Categorie.Select();
-            foreach (Categorie categorie in listcategories)
+            else
             {
-                categoriebox.Items.Add(categorie.nom);
+                MessageBox.Show("Entrer Categorie et nom produit!");
             }
-            RemplireProduitsTable(Produits.Select());
         }
+
+        
 
         private void Modifier_Click(object sender, EventArgs e)
         {
-            if (tnom.Text != null )
+            if (prod.Id != null )
             {
                 prod.nom = tnom.Text;
                 prod.categorie = categoriebox.Text;
@@ -145,8 +134,7 @@ namespace GestionStocks
         {
             DataGridViewRow row = ProduitsTable.Rows[e.RowIndex];
 
-            if(row.Cells[0].Value!=null)
-                tnom.Text = row.Cells[0].Value.ToString();
+            tnom.Text = row.Cells[0].Value.ToString();
             if(row.Cells[1].Value!=null)
                 categoriebox.Text = row.Cells[1].Value.ToString();
             if(row.Cells[2].Value != null)
@@ -158,30 +146,28 @@ namespace GestionStocks
             if(row.Cells[5].Value != null)
                 Description.Text = row.Cells[5].Value.ToString();
 
-
-
-
-
-
-
-
+            prod.Id = row.Cells[6].Value.ToString();
         }
-
-        private void GestionProduits_Load(object sender, EventArgs e)
+        private void GestionProduits_Load()
         {
-            tnom.Text = string.Empty;
-            Description.Text = string.Empty;
-            categoriebox.Text = string.Empty;
+            tnom.Text = null;
+            Description.Text = null;
+            categoriebox.Text = null;
             tpoids.Text = "0";
             tprix.Text = "0";
+            RemplireProduitsTable(Produits.Select());
 
+        }
+        private void GestionProduits_Load(object sender, EventArgs e)
+        {
             List<Categorie> listcategories = new List<Categorie>();
             listcategories = Categorie.Select();
             foreach (Categorie categorie in listcategories)
             {
                 categoriebox.Items.Add(categorie.nom);
             }
-            RemplireProduitsTable(Produits.Select());
+            
+            GestionProduits_Load();
         }
     }
 }
