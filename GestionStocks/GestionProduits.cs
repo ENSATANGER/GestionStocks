@@ -15,10 +15,11 @@ namespace GestionStocks
 {
     public partial class GestionProduits : Form
     {
-        static Produits prod = new Produits();
+        Produits prod = new Produits();
         public GestionProduits()
         {
             InitializeComponent();
+            GestionProduits_Load();
         }
 
         private void RemplireProduitsTable(List<Produits> prod)
@@ -44,29 +45,42 @@ namespace GestionStocks
 
         private void Ajouter_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(tnom.Text) && !string.IsNullOrWhiteSpace(categoriebox.Text) && float.Parse(tpoids.Text) >= 0 && float.Parse(tprix.Text) >= 0)
+            if(tnom.Text!=null && categoriebox.Text!=null && float.Parse(tpoids.Text)>=0 && float.Parse(tprix.Text)>=0)
             {
-                if ((new Produits(tnom.Text, categoriebox.Text, Description.Text, float.Parse(tprix.Text), float.Parse(tpoids.Text), (int)nquantite.Value)).Create() == null)
+                if ((new Produits(tnom.Text,categoriebox.Text, Description.Text, float.Parse(tprix.Text), float.Parse(tpoids.Text), (int)nquantite.Value)).Create() == null)
                     MessageBox.Show("Ce produit existe deja!");
                 else
                     GestionProduits_Load();
             }
-            else
-                MessageBox.Show("ajouet nom et categorie!");
         }
 
-        
+        private void GestionProduits_Load()
+        {
+            tnom.Text = string.Empty;
+            Description.Text = string.Empty;
+            categoriebox.Text = string.Empty;
+            tpoids.Text = "0";
+            tprix.Text = "0";
+
+            List<Categorie> listcategories = new List<Categorie>();
+            listcategories = Categorie.Select();
+            foreach (Categorie categorie in listcategories)
+            {
+                categoriebox.Items.Add(categorie.nom);
+            }
+            RemplireProduitsTable(Produits.Select());
+        }
 
         private void Modifier_Click(object sender, EventArgs e)
         {
-            if (prod.Id != null )
+            if (tnom.Text != null )
             {
                 prod.nom = tnom.Text;
                 prod.categorie = categoriebox.Text;
-                prod.quantite = (int)nquantite.Value;
-                prod.poids = float.Parse(tpoids.Text);
-                prod.prix = float.Parse(tprix.Text);
                 prod.description = Description.Text;
+                prod.prix = float.Parse(tprix.Text);
+                prod.poids = float.Parse(tpoids.Text);
+                prod.quantite = (int)nquantite.Value;
                 if (prod.Update() == null)
                     MessageBox.Show("Erreur! choisir depuis la table, et aprés modifier");
                 else
@@ -130,38 +144,44 @@ namespace GestionStocks
         private void ProduitsTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = ProduitsTable.Rows[e.RowIndex];
-            tnom.Text = row.Cells[0].Value.ToString();
-            categoriebox.Text = row.Cells[1].Value.ToString();
-            nquantite.Value = decimal.Parse(row.Cells[2].Value.ToString());
-            tpoids.Text = row.Cells[3].Value.ToString();
-            tprix.Text = row.Cells[4].Value.ToString();
-            Description.Text = row.Cells[5].Value.ToString();
+
+            if(row.Cells[0].Value!=null)
+                tnom.Text = row.Cells[0].Value.ToString();
+            if(row.Cells[1].Value!=null)
+                categoriebox.Text = row.Cells[1].Value.ToString();
+            if(row.Cells[2].Value != null)
+                nquantite.Value = decimal.Parse(row.Cells[2].Value.ToString());
+            if(row.Cells[3].Value != null)
+                tpoids.Text = row.Cells[3].Value.ToString();
+            if (row.Cells[4].Value != null)
+                tprix.Text = row.Cells[4].Value.ToString();
+            if(row.Cells[5].Value != null)
+                Description.Text = row.Cells[5].Value.ToString();
 
 
-            prod.Id = row.Cells[6].Value.ToString();
-            
+
+
+
+
+
+
         }
-        private void GestionProduits_Load()
-        {
-            tnom.Text = null;
-            Description.Text = string.Empty;
-            categoriebox.Text = null;
-            tpoids.Text = "0";
-            tprix.Text = "0";
-            nquantite.Value = 0;
-            prod.Id = null;
-            
-            RemplireProduitsTable(Produits.Select());
-        }
+
         private void GestionProduits_Load(object sender, EventArgs e)
         {
+            tnom.Text = string.Empty;
+            Description.Text = string.Empty;
+            categoriebox.Text = string.Empty;
+            tpoids.Text = "0";
+            tprix.Text = "0";
+
             List<Categorie> listcategories = new List<Categorie>();
             listcategories = Categorie.Select();
             foreach (Categorie categorie in listcategories)
             {
                 categoriebox.Items.Add(categorie.nom);
             }
-            GestionProduits_Load();
+            RemplireProduitsTable(Produits.Select());
         }
     }
 }

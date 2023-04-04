@@ -49,9 +49,7 @@ namespace GestionStocks
         {
             var filter = Builders<Produits>.Filter.Eq("Id", Id);
             //IsUpsert = true means that if it doesn't exist insert it
-            var update = Builders<Produits>.Update.Set("quantite", quantite);
-            var result =  collection.ReplaceOneAsync(filter, this);
-            return result;
+            return collection.ReplaceOneAsync(filter, this);
         }
 
         public Task Delete()
