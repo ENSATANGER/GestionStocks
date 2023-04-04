@@ -48,12 +48,14 @@ namespace GestionStocks
         public Task Update()
         {
             var filter = Builders<Produits>.Filter.Eq("Id", Id);
+            //IsUpsert = true means that if it doesn't exist insert it
             return collection.ReplaceOneAsync(filter, this);
         }
+
         public Task Delete()
         {
             if (select().Count != 0)
-                return collection.DeleteOneAsync(c => c.Id == Id);
+                return collection.DeleteOneAsync(p => p.nom ==  nom);
             return null;
         }
         public List<Produits> select()

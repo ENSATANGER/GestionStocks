@@ -45,9 +45,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.categoriebox = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ProduitsTable = new System.Windows.Forms.DataGridView();
+            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Poids = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prix = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nquantite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProduitsTable)).BeginInit();
             this.SuspendLayout();
             // 
             // tnom
@@ -115,6 +121,7 @@
             this.Supprimer.TabIndex = 11;
             this.Supprimer.Text = "Supprimer";
             this.Supprimer.UseVisualStyleBackColor = true;
+            this.Supprimer.Click += new System.EventHandler(this.Supprimer_Click);
             // 
             // Rechercher
             // 
@@ -124,6 +131,7 @@
             this.Rechercher.TabIndex = 12;
             this.Rechercher.Text = "Rechercher";
             this.Rechercher.UseVisualStyleBackColor = true;
+            this.Rechercher.Click += new System.EventHandler(this.Rechercher_Click);
             // 
             // tname
             // 
@@ -185,13 +193,51 @@
             this.categoriebox.Size = new System.Drawing.Size(236, 21);
             this.categoriebox.TabIndex = 19;
             // 
-            // dataGridView1
+            // ProduitsTable
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 247);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(694, 191);
-            this.dataGridView1.TabIndex = 20;
+            this.ProduitsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProduitsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nom,
+            this.Cat,
+            this.Quantite,
+            this.Poids,
+            this.Prix,
+            this.Desc});
+            this.ProduitsTable.Location = new System.Drawing.Point(80, 247);
+            this.ProduitsTable.Name = "ProduitsTable";
+            this.ProduitsTable.Size = new System.Drawing.Size(638, 191);
+            this.ProduitsTable.TabIndex = 20;
+            this.ProduitsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProduitsTable_CellContentClick);
+            // 
+            // nom
+            // 
+            this.nom.HeaderText = "Nom";
+            this.nom.Name = "nom";
+            // 
+            // Cat
+            // 
+            this.Cat.HeaderText = "Categorie";
+            this.Cat.Name = "Cat";
+            // 
+            // Quantite
+            // 
+            this.Quantite.HeaderText = "Quantite";
+            this.Quantite.Name = "Quantite";
+            // 
+            // Poids
+            // 
+            this.Poids.HeaderText = "Poids";
+            this.Poids.Name = "Poids";
+            // 
+            // Prix
+            // 
+            this.Prix.HeaderText = "Prix";
+            this.Prix.Name = "Prix";
+            // 
+            // Desc
+            // 
+            this.Desc.HeaderText = "Description";
+            this.Desc.Name = "Desc";
             // 
             // GestionProduits
             // 
@@ -200,7 +246,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.ProduitsTable);
             this.Controls.Add(this.categoriebox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -222,7 +268,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.GestionProduits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nquantite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProduitsTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,6 +293,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox categoriebox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ProduitsTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantite;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Poids;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Prix;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Desc;
     }
 }
