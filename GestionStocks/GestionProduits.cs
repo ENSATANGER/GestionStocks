@@ -44,13 +44,15 @@ namespace GestionStocks
 
         private void Ajouter_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(tnom.Text) && !string.IsNullOrWhiteSpace(categoriebox.Text) && float.Parse(tpoids.Text)>=0 && float.Parse(tprix.Text)>=0)
+            if (!string.IsNullOrWhiteSpace(tnom.Text) && !string.IsNullOrWhiteSpace(categoriebox.Text) && float.Parse(tpoids.Text) >= 0 && float.Parse(tprix.Text) >= 0)
             {
-                if ((new Produits(tnom.Text,categoriebox.Text, Description.Text, float.Parse(tprix.Text), float.Parse(tpoids.Text), (int)nquantite.Value)).Create() == null)
+                if ((new Produits(tnom.Text, categoriebox.Text, Description.Text, float.Parse(tprix.Text), float.Parse(tpoids.Text), (int)nquantite.Value)).Create() == null)
                     MessageBox.Show("Ce produit existe deja!");
                 else
                     GestionProduits_Load();
             }
+            else
+                MessageBox.Show("ajouet nom et categorie!");
         }
 
         
@@ -134,6 +136,8 @@ namespace GestionStocks
             tpoids.Text = row.Cells[3].Value.ToString();
             tprix.Text = row.Cells[4].Value.ToString();
             Description.Text = row.Cells[5].Value.ToString();
+
+
             prod.Id = row.Cells[6].Value.ToString();
             
         }
