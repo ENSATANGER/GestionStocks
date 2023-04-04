@@ -46,13 +46,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.categoriebox = new System.Windows.Forms.ComboBox();
             this.ProduitsTable = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prix = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Poids = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Poids = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prix = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nquantite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProduitsTable)).BeginInit();
             this.SuspendLayout();
@@ -205,46 +205,47 @@
             this.Prix,
             this.Desc,
             this.Id});
-            this.ProduitsTable.Location = new System.Drawing.Point(21, 247);
+            this.ProduitsTable.Location = new System.Drawing.Point(82, 247);
             this.ProduitsTable.Name = "ProduitsTable";
-            this.ProduitsTable.Size = new System.Drawing.Size(740, 191);
+            this.ProduitsTable.Size = new System.Drawing.Size(644, 191);
             this.ProduitsTable.TabIndex = 20;
             this.ProduitsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProduitsTable_CellContentClick);
             // 
-            // Id
+            // nom
             // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            // 
-            // Desc
-            // 
-            this.Desc.HeaderText = "Description";
-            this.Desc.Name = "Desc";
-            // 
-            // Prix
-            // 
-            this.Prix.HeaderText = "Prix";
-            this.Prix.Name = "Prix";
-            // 
-            // Poids
-            // 
-            this.Poids.HeaderText = "Poids";
-            this.Poids.Name = "Poids";
-            // 
-            // Quantite
-            // 
-            this.Quantite.HeaderText = "Quantite";
-            this.Quantite.Name = "Quantite";
+            this.nom.HeaderText = "Nom";
+            this.nom.Name = "nom";
             // 
             // Cat
             // 
             this.Cat.HeaderText = "Categorie";
             this.Cat.Name = "Cat";
             // 
-            // nom
+            // Quantite
             // 
-            this.nom.HeaderText = "Nom";
-            this.nom.Name = "nom";
+            this.Quantite.HeaderText = "Quantite";
+            this.Quantite.Name = "Quantite";
+            // 
+            // Poids
+            // 
+            this.Poids.HeaderText = "Poids";
+            this.Poids.Name = "Poids";
+            // 
+            // Prix
+            // 
+            this.Prix.HeaderText = "Prix";
+            this.Prix.Name = "Prix";
+            // 
+            // Desc
+            // 
+            this.Desc.HeaderText = "Description";
+            this.Desc.Name = "Desc";
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
             // 
             // GestionProduits
             // 
