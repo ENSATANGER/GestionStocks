@@ -13,7 +13,7 @@ namespace GestionStocks
     {
         private static Connection conn = new Connection();
 
-        private static IMongoCollection<Produits> collection = conn.getCollection<Produits>("Produits");
+        public static IMongoCollection<Produits> collection = conn.getCollection<Produits>("Produits");
 
         [BsonId]
 

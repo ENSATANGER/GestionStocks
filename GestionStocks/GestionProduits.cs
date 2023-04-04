@@ -37,6 +37,7 @@ namespace GestionStocks
                 row.Cells[3].Value = produit.poids;
                 row.Cells[4].Value = produit.prix;
                 row.Cells[5].Value = produit.description;
+                row.Cells[6].Value = produit.Id;
 
                 ProduitsTable.Rows.Add(row);
             }
@@ -72,7 +73,7 @@ namespace GestionStocks
 
         private void Modifier_Click(object sender, EventArgs e)
         {
-            if (tnom.Text != null &&  prod.Id != "0")
+            if (tnom.Text != null )
             {
                 prod.nom = tnom.Text;
                 prod.categorie = categoriebox.Text;
@@ -83,7 +84,11 @@ namespace GestionStocks
                 if (prod.Update() == null)
                     MessageBox.Show("Erreur! choisir depuis la table, et aprés modifier");
                 else
+                {
+                    MessageBox.Show(tnom.Text + " est bien Modifie");
                     GestionProduits_Load();
+                }
+                    
                 
             }
         }
