@@ -162,3 +162,4 @@ C:\Users\louay\Documents\GitHub\GestionStocks\GestionStocks\obj\Debug\GestionSto
 C:\Users\louay\Documents\GitHub\GestionStocks\GestionStocks\obj\Debug\GestionStocks.csproj.CopyComplete
 C:\Users\louay\Documents\GitHub\GestionStocks\GestionStocks\obj\Debug\GestionStocks.exe
 C:\Users\louay\Documents\GitHub\GestionStocks\GestionStocks\obj\Debug\GestionStocks.pdb
+C:\Users\louay\Documents\GitHub\GestionStocks\GestionStocks\obj\Debug\GestionStocks.GestionSales.resources

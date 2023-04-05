@@ -9,11 +9,11 @@ using MongoDB.Driver;
 
 namespace GestionStocks
 {
-    internal class Sells
+    internal class Sales
     {
         private static Connection conn = new Connection();
 
-        private static IMongoCollection<Sells> collection = conn.getCollection<Sells>("Sells");
+        private static IMongoCollection<Sales> collection = conn.getCollection<Sales>("Sells");
 
 
 
