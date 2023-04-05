@@ -152,7 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categorie.cs" />
-    <Compile Include="Commandes.cs" />
+    <Compile Include="Sells.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="GestionCategories.cs">
       <SubType>Form</SubType>
