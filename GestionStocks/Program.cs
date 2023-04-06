@@ -8,6 +8,14 @@ namespace GestionStocks
     {
         static async Task Main(string[] args)
         {
+            /*Produits produits = new Produits();
+            produits.nom = "Samsung";
+            produits.categorie = "Telephones";
+            produits.description = "Samsung";
+                produits.prix = 0;
+            produits.poids = 0;
+            produits.quantite = 7;
+            Console.WriteLine(Produits.collection);*/
             (new MDI()).ShowDialog();
             /*Categorie categorie = new Categorie( "Informatique", "pc + écran + clavier");
             *//*await categorie.Create();*//*
