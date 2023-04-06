@@ -83,6 +83,7 @@
             this.ClientTBOX.Name = "ClientTBOX";
             this.ClientTBOX.Size = new System.Drawing.Size(100, 20);
             this.ClientTBOX.TabIndex = 3;
+            this.ClientTBOX.TextChanged += new System.EventHandler(this.ClientTBOX_TextChanged);
             // 
             // ProduitTBOX
             // 
