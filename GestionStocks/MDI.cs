@@ -38,7 +38,7 @@ namespace GestionStocks
 
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            new GestionClients(this).Show();
         }
     }
 }

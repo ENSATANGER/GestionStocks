@@ -162,3 +162,4 @@ C:\Users\mouad\C#.Net Projects\GestionStocks\GestionStocks\obj\Debug\GestionStoc
 C:\Users\mouad\C#.Net Projects\GestionStocks\GestionStocks\obj\Debug\GestionStocks.csproj.CopyComplete
 C:\Users\mouad\C#.Net Projects\GestionStocks\GestionStocks\obj\Debug\GestionStocks.exe
 C:\Users\mouad\C#.Net Projects\GestionStocks\GestionStocks\obj\Debug\GestionStocks.pdb
+C:\Users\mouad\C#.Net Projects\GestionStocks\GestionStocks\obj\Debug\GestionStocks.GestionClients.resources
