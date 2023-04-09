@@ -12,6 +12,27 @@ namespace GestionStocks
     {
         static async Task Main(string[] args)
         {
+            (new MDI()).ShowDialog();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             /*Produits produits = new Produits();
             produits.nom = "Samsung";
             produits.categorie = "Telephones";
@@ -24,7 +45,6 @@ namespace GestionStocks
             foreach(Produits produit in lp) { Console.WriteLine(produit); }*/
 
 
-            (new MDI()).ShowDialog();
 
             /*Categorie categorie = new Categorie( "Informatique", "pc + écran + clavier");
             *//*await categorie.Create();*//*
