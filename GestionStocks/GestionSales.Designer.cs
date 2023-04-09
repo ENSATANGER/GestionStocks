@@ -89,10 +89,10 @@
             // 
             // TotalTBOX
             // 
-            this.TotalTBOX.Location = new System.Drawing.Point(239, 168);
+            this.TotalTBOX.Location = new System.Drawing.Point(217, 168);
             this.TotalTBOX.Name = "TotalTBOX";
             this.TotalTBOX.ReadOnly = true;
-            this.TotalTBOX.Size = new System.Drawing.Size(100, 20);
+            this.TotalTBOX.Size = new System.Drawing.Size(122, 20);
             this.TotalTBOX.TabIndex = 7;
             this.TotalTBOX.Text = "00.00";
             this.TotalTBOX.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
@@ -123,6 +123,7 @@
             this.Modifier.TabIndex = 14;
             this.Modifier.Text = "Modifier";
             this.Modifier.UseVisualStyleBackColor = true;
+            this.Modifier.Click += new System.EventHandler(this.Modifier_Click);
             // 
             // Ajouter
             // 
@@ -145,6 +146,7 @@
             this.total});
             this.SalesTable.Location = new System.Drawing.Point(58, 226);
             this.SalesTable.Name = "SalesTable";
+            this.SalesTable.ReadOnly = true;
             this.SalesTable.Size = new System.Drawing.Size(567, 191);
             this.SalesTable.TabIndex = 21;
             this.SalesTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProduitsTable_CellContentClick);
@@ -194,6 +196,7 @@
             this.NProduit.Name = "NProduit";
             this.NProduit.Size = new System.Drawing.Size(121, 21);
             this.NProduit.TabIndex = 23;
+            this.NProduit.SelectedIndexChanged += new System.EventHandler(this.NProduit_SelectedIndexChanged);
             // 
             // NQuantite
             // 
@@ -201,6 +204,7 @@
             this.NQuantite.Name = "NQuantite";
             this.NQuantite.Size = new System.Drawing.Size(121, 20);
             this.NQuantite.TabIndex = 24;
+            this.NQuantite.ValueChanged += new System.EventHandler(this.NQuantite_ValueChanged);
             // 
             // GestionSales
             // 

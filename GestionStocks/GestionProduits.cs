@@ -77,8 +77,6 @@ namespace GestionStocks
                     MessageBox.Show(tnom.Text + " est bien Modifie");
                     GestionProduits_Load();
                 }
-                    
-                
             }
         }
 
@@ -176,6 +174,11 @@ namespace GestionStocks
         }
 
         private void categoriebox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nquantite_ValueChanged_1(object sender, EventArgs e)
         {
 
         }

@@ -79,6 +79,7 @@
             this.nquantite.Name = "nquantite";
             this.nquantite.Size = new System.Drawing.Size(236, 20);
             this.nquantite.TabIndex = 6;
+            this.nquantite.ValueChanged += new System.EventHandler(this.nquantite_ValueChanged_1);
             // 
             // tprix
             // 

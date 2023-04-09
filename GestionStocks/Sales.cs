@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 using MongoDB.Driver;
-
 namespace GestionStocks
 {
     class Sales
     {
         private static Connection conn = new Connection();
-
         public static IMongoCollection<Sales> collection = conn.getCollection<Sales>("Sales");
-
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
@@ -65,8 +62,5 @@ namespace GestionStocks
             var result = collection.Find(_ => true);
             return result.ToList();
         }
-
-        
-        
     }
 }
