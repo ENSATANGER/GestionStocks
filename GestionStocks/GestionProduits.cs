@@ -104,27 +104,27 @@ namespace GestionStocks
 
         private void Supprimer_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("vous voulez supprimer le Produit " + tnom.Text + " ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                if (tnom.Text != null)
+                DialogResult result = MessageBox.Show("vous voulez supprimer le Produit " + tnom.Text + " ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    prod.nom = tnom.Text;
-                    prod.categorie = categoriebox.Text;
-                    prod.description = Description.Text;
-                    prod.prix = float.Parse(tprix.Text);
-                    prod.poids = float.Parse(tpoids.Text);
-                    prod.quantite = (int)nquantite.Value;
-
-                    if (prod.Delete() == null)
-                        MessageBox.Show("Erreur! choisir depuis la table");
-                    else
+                    if (tnom.Text != null)
                     {
-                        MessageBox.Show(tnom.Text + " est bien supprimé");
-                        GestionProduits_Load();
+                        prod.nom = tnom.Text;
+                        prod.categorie = categoriebox.Text;
+                        prod.description = Description.Text;
+                        prod.prix = float.Parse(tprix.Text);
+                        prod.poids = float.Parse(tpoids.Text);
+                        prod.quantite = (int)nquantite.Value;
+
+                        if (prod.Delete() == null)
+                            MessageBox.Show("Erreur! choisir depuis la table");
+                        else
+                        {
+                            MessageBox.Show(tnom.Text + " est bien supprimé");
+                            GestionProduits_Load();
+                        }
                     }
                 }
-            }
                 
         }
 

@@ -141,5 +141,15 @@ namespace GestionStocks
         {
 
         }
+
+        private void CategoriesTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void NomText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

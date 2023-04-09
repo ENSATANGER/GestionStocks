@@ -13,7 +13,7 @@ namespace GestionStocks
 {
     public partial class GestionSales : Form
     {
-        Sales C = new Sales();
+        Sales S = new Sales();
         public GestionSales(MDI mdi)
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace GestionStocks
             prods_clnts();
             Initializer();
 
-            C.Id = "0";
+            S.Id = "0";
         }
         private void prods_clnts()
         {
@@ -46,18 +46,19 @@ namespace GestionStocks
         {
             try { 
                 SalesTable.Rows.Clear();
-                List<Sales> Sales = s;
-                Sales.Reverse();
-                foreach (Sales sale in Sales)
+                
+                s.Reverse();
+                foreach (Sales sale in s)
                 {
+                    sale.Prix = Produits.searchByName(sale.NomProduit).prix;
                     var row = new DataGridViewRow();
                     row.CreateCells(SalesTable);
                     row.Cells[0].Value = sale.NomClient;
                     row.Cells[1].Value = sale.NomProduit;
                     row.Cells[2].Value = sale.Quantite;
-                    Produits prod = Produits.searchByName(sale.NomProduit);
-                    row.Cells[3].Value = prod.prix;
-                    row.Cells[4].Value = prod.prix * sale.Quantite;
+                    row.Cells[3].Value = sale.Prix;
+                    row.Cells[4].Value = sale.Prix * sale.Quantite;
+                    row.Cells[5].Value = sale.Id;
                     SalesTable.Rows.Add(row);
                 }
              }catch(Exception ex) { 
@@ -73,7 +74,7 @@ namespace GestionStocks
         }
         private void ProduitsTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
@@ -90,10 +91,18 @@ namespace GestionStocks
                 if (NProduit.SelectedItem.ToString() != null && NClient.SelectedItem.ToString() != null && Convert.ToInt32(NQuantite.Value) != 0)
                 {
                     Produits p = Produits.searchByName(NProduit.SelectedItem.ToString());
-                    if (new Sales(NClient.SelectedItem.ToString(), p.nom, Convert.ToInt32(NQuantite.Value), p.prix).Create() == null)
-                        MessageBox.Show("achat echoue");
-                    MessageBox.Show("BSAHA WRAHA");
-                    Initializer();
+                    int q = Convert.ToInt32(NQuantite.Value);
+                    if (q <= p.quantite)
+                    {
+                        if (new Sales(NClient.SelectedItem.ToString(), p.nom, q, p.prix).Create() == null)
+                            MessageBox.Show("achat echoue");
+                        MessageBox.Show("BSAHA WRAHA");
+                        Initializer();
+                        p.quantite = p.quantite-q;
+                        p.Update();
+                    } 
+                    else MessageBox.Show("Quantite superieur au stock");
+
                 }
                 else if(Convert.ToInt32(NQuantite.Value) == 0)MessageBox.Show("li machra yetnezah");
             }
@@ -105,22 +114,26 @@ namespace GestionStocks
         }
         private void Modifier_Click(object sender, EventArgs e)
         {
-            if (C.Id != null)
+            Produits p = Produits.searchByName(NProduit.SelectedItem.ToString());
+            if (S.Id != null)
             {
-                C.NomClient = NClient.SelectedItem.ToString();
-                C.NomProduit = NProduit.SelectedItem.ToString();
-                C.Quantite = Convert.ToInt32(NQuantite.Value);
-                if (C.Update() == null)
-                    MessageBox.Show("Erreur! choisir depuis la table, et aprés modifier");
-                else
-                {
-                    MessageBox.Show("L'achat est bien Modifiée");
+                S.NomClient = NClient.Text;
+                S.NomProduit = NProduit.Text;
+                S.Quantite = Convert.ToInt32(NQuantite.Value);
+                if (S.Quantite <= p.quantite) {
+                    if (S.Update() == null)
+                        MessageBox.Show("Erreur! choisir depuis la table, et aprés modifier");
+                    else
+                    {
+                        MessageBox.Show("votre commande  Mr." + NClient.Text + " est bien Modifie");
+                        Initializer();
+                        p.quantite = p.quantite - S.Quantite;
+                        p.Update();
+                    }
                 }
-
-
+                else MessageBox.Show("Quantite superieur au stock");
             }
         }
-
         private void NQuantite_ValueChanged(object sender, EventArgs e)
         {
             try
@@ -132,7 +145,6 @@ namespace GestionStocks
             catch { MessageBox.Show("choisir un produit"); }
 
         }
-
         private void NProduit_SelectedIndexChanged(object sender, EventArgs e)
         {
                 Produits p = Produits.searchByName(NProduit.SelectedItem.ToString());
@@ -140,5 +152,62 @@ namespace GestionStocks
                     TotalTBOX.Text = " درهم " + (p.prix * Convert.ToInt32(NQuantite.Value)).ToString();
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void SalesTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = SalesTable.Rows[e.RowIndex];
+
+            NClient.Text = row.Cells[0].Value.ToString();
+            NProduit.Text = row.Cells[1].Value.ToString();
+            NQuantite.Value = decimal.Parse(row.Cells[2].Value.ToString());
+            TotalTBOX.Text = row.Cells[4].Value.ToString();
+            S.Id = row.Cells[5].Value.ToString();
+            Console.WriteLine(S.Id);
+        }
+
+        private void Rechercher_Click(object sender, EventArgs e)
+        {
+            if (NClient.Text != null)
+            {
+                List<Sales> listsales = new List<Sales>();
+
+                listsales = Sales.Select();
+                foreach (Sales s in listsales)
+                {
+                    if (s.NomClient == NClient.Text)
+                    {
+                        NProduit.Text = s.NomProduit;
+                        NQuantite.Value = s.Quantite;
+                    }
+                }
+            }
+        }
+
+        private void Supprimer_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("vous voulez supprimer le Produit " + NClient.Text + " ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            Produits p = Produits.searchByName(NProduit.SelectedItem.ToString());
+            if (result == DialogResult.Yes)
+            {
+                if (NClient.Text != null)
+                {
+                    S.NomClient = NClient.Text;
+                    S.NomProduit= NProduit.Text;
+                    S.Prix = p.prix;
+                    S.Quantite = Convert.ToInt32(NQuantite.Value);
+
+                    if (S.Delete() == null)
+                        MessageBox.Show("Erreur! choisir depuis la table");
+                    else
+                    {
+                        MessageBox.Show(NClient.Text + " est bien supprimé");
+                        Initializer();
+                    }
+                }
+            }
+        }
     }
 }

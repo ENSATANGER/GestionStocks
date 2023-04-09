@@ -38,14 +38,15 @@
             this.Modifier = new System.Windows.Forms.Button();
             this.Ajouter = new System.Windows.Forms.Button();
             this.SalesTable = new System.Windows.Forms.DataGridView();
+            this.NClient = new System.Windows.Forms.ComboBox();
+            this.NProduit = new System.Windows.Forms.ComboBox();
+            this.NQuantite = new System.Windows.Forms.NumericUpDown();
             this.nomClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomProduit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prix = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NClient = new System.Windows.Forms.ComboBox();
-            this.NProduit = new System.Windows.Forms.ComboBox();
-            this.NQuantite = new System.Windows.Forms.NumericUpDown();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.SalesTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NQuantite)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +82,7 @@
             // TotalLabel
             // 
             this.TotalLabel.AutoSize = true;
-            this.TotalLabel.Location = new System.Drawing.Point(58, 175);
+            this.TotalLabel.Location = new System.Drawing.Point(55, 175);
             this.TotalLabel.Name = "TotalLabel";
             this.TotalLabel.Size = new System.Drawing.Size(31, 13);
             this.TotalLabel.TabIndex = 6;
@@ -105,6 +106,7 @@
             this.Rechercher.TabIndex = 16;
             this.Rechercher.Text = "Rechercher";
             this.Rechercher.UseVisualStyleBackColor = true;
+            this.Rechercher.Click += new System.EventHandler(this.Rechercher_Click);
             // 
             // Supprimer
             // 
@@ -114,6 +116,7 @@
             this.Supprimer.TabIndex = 15;
             this.Supprimer.Text = "Supprimer";
             this.Supprimer.UseVisualStyleBackColor = true;
+            this.Supprimer.Click += new System.EventHandler(this.Supprimer_Click);
             // 
             // Modifier
             // 
@@ -143,45 +146,18 @@
             this.nomProduit,
             this.Quantite,
             this.Prix,
-            this.total});
+            this.total,
+            this.ID});
             this.SalesTable.Location = new System.Drawing.Point(58, 226);
             this.SalesTable.Name = "SalesTable";
             this.SalesTable.ReadOnly = true;
             this.SalesTable.Size = new System.Drawing.Size(567, 191);
             this.SalesTable.TabIndex = 21;
-            this.SalesTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProduitsTable_CellContentClick);
-            // 
-            // nomClient
-            // 
-            this.nomClient.HeaderText = "Nom du Client";
-            this.nomClient.Name = "nomClient";
-            this.nomClient.Width = 110;
-            // 
-            // nomProduit
-            // 
-            this.nomProduit.HeaderText = "Nom du Produit";
-            this.nomProduit.Name = "nomProduit";
-            this.nomProduit.Width = 110;
-            // 
-            // Quantite
-            // 
-            this.Quantite.HeaderText = "Quantité";
-            this.Quantite.Name = "Quantite";
-            // 
-            // Prix
-            // 
-            this.Prix.HeaderText = "Prix";
-            this.Prix.Name = "Prix";
-            // 
-            // total
-            // 
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
-            this.total.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.total.Width = 104;
+            this.SalesTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SalesTable_CellClick);
             // 
             // NClient
             // 
+            this.NClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.NClient.FormattingEnabled = true;
             this.NClient.Location = new System.Drawing.Point(217, 39);
             this.NClient.Name = "NClient";
@@ -191,6 +167,7 @@
             // 
             // NProduit
             // 
+            this.NProduit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.NProduit.FormattingEnabled = true;
             this.NProduit.Location = new System.Drawing.Point(217, 85);
             this.NProduit.Name = "NProduit";
@@ -205,6 +182,47 @@
             this.NQuantite.Size = new System.Drawing.Size(121, 20);
             this.NQuantite.TabIndex = 24;
             this.NQuantite.ValueChanged += new System.EventHandler(this.NQuantite_ValueChanged);
+            // 
+            // nomClient
+            // 
+            this.nomClient.HeaderText = "Nom du Client";
+            this.nomClient.Name = "nomClient";
+            this.nomClient.ReadOnly = true;
+            this.nomClient.Width = 110;
+            // 
+            // nomProduit
+            // 
+            this.nomProduit.HeaderText = "Nom du Produit";
+            this.nomProduit.Name = "nomProduit";
+            this.nomProduit.ReadOnly = true;
+            this.nomProduit.Width = 110;
+            // 
+            // Quantite
+            // 
+            this.Quantite.HeaderText = "Quantité";
+            this.Quantite.Name = "Quantite";
+            this.Quantite.ReadOnly = true;
+            // 
+            // Prix
+            // 
+            this.Prix.HeaderText = "Prix";
+            this.Prix.Name = "Prix";
+            this.Prix.ReadOnly = true;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.total.Width = 104;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
             // GestionSales
             // 
@@ -250,13 +268,14 @@
         private System.Windows.Forms.Button Modifier;
         private System.Windows.Forms.Button Ajouter;
         private System.Windows.Forms.DataGridView SalesTable;
+        private System.Windows.Forms.ComboBox NClient;
+        private System.Windows.Forms.ComboBox NProduit;
+        private System.Windows.Forms.NumericUpDown NQuantite;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomClient;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomProduit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantite;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prix;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        private System.Windows.Forms.ComboBox NClient;
-        private System.Windows.Forms.ComboBox NProduit;
-        private System.Windows.Forms.NumericUpDown NQuantite;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
     }
 }
