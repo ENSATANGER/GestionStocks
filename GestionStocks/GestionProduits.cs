@@ -164,5 +164,20 @@ namespace GestionStocks
             
             GestionProduits_Load();
         }
+
+        private void nquantite_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProduitsTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void categoriebox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

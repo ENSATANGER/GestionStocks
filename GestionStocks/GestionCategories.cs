@@ -136,5 +136,10 @@ namespace GestionStocks
         {
 
         }
+
+        private void GestionCategories_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

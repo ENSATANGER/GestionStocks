@@ -193,6 +193,7 @@
             this.categoriebox.Name = "categoriebox";
             this.categoriebox.Size = new System.Drawing.Size(236, 21);
             this.categoriebox.TabIndex = 19;
+            this.categoriebox.SelectedIndexChanged += new System.EventHandler(this.categoriebox_SelectedIndexChanged);
             // 
             // ProduitsTable
             // 
@@ -210,6 +211,7 @@
             this.ProduitsTable.Size = new System.Drawing.Size(641, 191);
             this.ProduitsTable.TabIndex = 20;
             this.ProduitsTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProduitsTable_CellClick);
+            this.ProduitsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProduitsTable_CellContentClick);
             // 
             // nom
             // 

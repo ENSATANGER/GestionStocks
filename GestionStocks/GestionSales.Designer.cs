@@ -31,9 +31,6 @@
             this.ClientLabel = new System.Windows.Forms.Label();
             this.ProduitLabel = new System.Windows.Forms.Label();
             this.QuantitLabel = new System.Windows.Forms.Label();
-            this.ClientTBOX = new System.Windows.Forms.TextBox();
-            this.ProduitTBOX = new System.Windows.Forms.TextBox();
-            this.QuantiteTBOX = new System.Windows.Forms.TextBox();
             this.TotalLabel = new System.Windows.Forms.Label();
             this.TotalTBOX = new System.Windows.Forms.TextBox();
             this.Rechercher = new System.Windows.Forms.Button();
@@ -46,13 +43,17 @@
             this.Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prix = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NClient = new System.Windows.Forms.ComboBox();
+            this.NProduit = new System.Windows.Forms.ComboBox();
+            this.NQuantite = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.SalesTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NQuantite)).BeginInit();
             this.SuspendLayout();
             // 
             // ClientLabel
             // 
             this.ClientLabel.AutoSize = true;
-            this.ClientLabel.Location = new System.Drawing.Point(54, 36);
+            this.ClientLabel.Location = new System.Drawing.Point(55, 48);
             this.ClientLabel.Name = "ClientLabel";
             this.ClientLabel.Size = new System.Drawing.Size(73, 13);
             this.ClientLabel.TabIndex = 0;
@@ -62,7 +63,7 @@
             // ProduitLabel
             // 
             this.ProduitLabel.AutoSize = true;
-            this.ProduitLabel.Location = new System.Drawing.Point(54, 76);
+            this.ProduitLabel.Location = new System.Drawing.Point(55, 88);
             this.ProduitLabel.Name = "ProduitLabel";
             this.ProduitLabel.Size = new System.Drawing.Size(80, 13);
             this.ProduitLabel.TabIndex = 1;
@@ -71,39 +72,16 @@
             // QuantitLabel
             // 
             this.QuantitLabel.AutoSize = true;
-            this.QuantitLabel.Location = new System.Drawing.Point(54, 119);
+            this.QuantitLabel.Location = new System.Drawing.Point(55, 131);
             this.QuantitLabel.Name = "QuantitLabel";
             this.QuantitLabel.Size = new System.Drawing.Size(49, 13);
             this.QuantitLabel.TabIndex = 2;
             this.QuantitLabel.Text = "Quanitité";
             // 
-            // ClientTBOX
-            // 
-            this.ClientTBOX.Location = new System.Drawing.Point(238, 29);
-            this.ClientTBOX.Name = "ClientTBOX";
-            this.ClientTBOX.Size = new System.Drawing.Size(100, 20);
-            this.ClientTBOX.TabIndex = 3;
-            this.ClientTBOX.TextChanged += new System.EventHandler(this.ClientTBOX_TextChanged);
-            // 
-            // ProduitTBOX
-            // 
-            this.ProduitTBOX.Location = new System.Drawing.Point(238, 69);
-            this.ProduitTBOX.Name = "ProduitTBOX";
-            this.ProduitTBOX.Size = new System.Drawing.Size(100, 20);
-            this.ProduitTBOX.TabIndex = 4;
-            // 
-            // QuantiteTBOX
-            // 
-            this.QuantiteTBOX.Location = new System.Drawing.Point(238, 112);
-            this.QuantiteTBOX.Name = "QuantiteTBOX";
-            this.QuantiteTBOX.Size = new System.Drawing.Size(100, 20);
-            this.QuantiteTBOX.TabIndex = 5;
-            this.QuantiteTBOX.Text = "0";
-            // 
             // TotalLabel
             // 
             this.TotalLabel.AutoSize = true;
-            this.TotalLabel.Location = new System.Drawing.Point(57, 163);
+            this.TotalLabel.Location = new System.Drawing.Point(58, 175);
             this.TotalLabel.Name = "TotalLabel";
             this.TotalLabel.Size = new System.Drawing.Size(31, 13);
             this.TotalLabel.TabIndex = 6;
@@ -111,8 +89,9 @@
             // 
             // TotalTBOX
             // 
-            this.TotalTBOX.Location = new System.Drawing.Point(238, 156);
+            this.TotalTBOX.Location = new System.Drawing.Point(239, 168);
             this.TotalTBOX.Name = "TotalTBOX";
+            this.TotalTBOX.ReadOnly = true;
             this.TotalTBOX.Size = new System.Drawing.Size(100, 20);
             this.TotalTBOX.TabIndex = 7;
             this.TotalTBOX.Text = "00.00";
@@ -120,7 +99,7 @@
             // 
             // Rechercher
             // 
-            this.Rechercher.Location = new System.Drawing.Point(479, 153);
+            this.Rechercher.Location = new System.Drawing.Point(480, 165);
             this.Rechercher.Name = "Rechercher";
             this.Rechercher.Size = new System.Drawing.Size(145, 23);
             this.Rechercher.TabIndex = 16;
@@ -129,7 +108,7 @@
             // 
             // Supprimer
             // 
-            this.Supprimer.Location = new System.Drawing.Point(479, 109);
+            this.Supprimer.Location = new System.Drawing.Point(480, 121);
             this.Supprimer.Name = "Supprimer";
             this.Supprimer.Size = new System.Drawing.Size(145, 23);
             this.Supprimer.TabIndex = 15;
@@ -138,7 +117,7 @@
             // 
             // Modifier
             // 
-            this.Modifier.Location = new System.Drawing.Point(479, 66);
+            this.Modifier.Location = new System.Drawing.Point(480, 78);
             this.Modifier.Name = "Modifier";
             this.Modifier.Size = new System.Drawing.Size(145, 23);
             this.Modifier.TabIndex = 14;
@@ -147,12 +126,13 @@
             // 
             // Ajouter
             // 
-            this.Ajouter.Location = new System.Drawing.Point(479, 26);
+            this.Ajouter.Location = new System.Drawing.Point(480, 38);
             this.Ajouter.Name = "Ajouter";
             this.Ajouter.Size = new System.Drawing.Size(145, 23);
             this.Ajouter.TabIndex = 13;
             this.Ajouter.Text = "Ajouter";
             this.Ajouter.UseVisualStyleBackColor = true;
+            this.Ajouter.Click += new System.EventHandler(this.ajouter_Click);
             // 
             // SalesTable
             // 
@@ -163,7 +143,7 @@
             this.Quantite,
             this.Prix,
             this.total});
-            this.SalesTable.Location = new System.Drawing.Point(57, 228);
+            this.SalesTable.Location = new System.Drawing.Point(58, 226);
             this.SalesTable.Name = "SalesTable";
             this.SalesTable.Size = new System.Drawing.Size(567, 191);
             this.SalesTable.TabIndex = 21;
@@ -196,12 +176,41 @@
             this.total.HeaderText = "Total";
             this.total.Name = "total";
             this.total.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.total.Width = 104;
+            // 
+            // NClient
+            // 
+            this.NClient.FormattingEnabled = true;
+            this.NClient.Location = new System.Drawing.Point(217, 39);
+            this.NClient.Name = "NClient";
+            this.NClient.Size = new System.Drawing.Size(121, 21);
+            this.NClient.TabIndex = 22;
+            this.NClient.SelectedIndexChanged += new System.EventHandler(this.NClient_SelectedIndexChanged);
+            // 
+            // NProduit
+            // 
+            this.NProduit.FormattingEnabled = true;
+            this.NProduit.Location = new System.Drawing.Point(217, 85);
+            this.NProduit.Name = "NProduit";
+            this.NProduit.Size = new System.Drawing.Size(121, 21);
+            this.NProduit.TabIndex = 23;
+            // 
+            // NQuantite
+            // 
+            this.NQuantite.Location = new System.Drawing.Point(217, 124);
+            this.NQuantite.Name = "NQuantite";
+            this.NQuantite.Size = new System.Drawing.Size(121, 20);
+            this.NQuantite.TabIndex = 24;
             // 
             // GestionSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 450);
+            this.ClientSize = new System.Drawing.Size(790, 537);
+            this.ControlBox = false;
+            this.Controls.Add(this.NQuantite);
+            this.Controls.Add(this.NProduit);
+            this.Controls.Add(this.NClient);
             this.Controls.Add(this.SalesTable);
             this.Controls.Add(this.Rechercher);
             this.Controls.Add(this.Supprimer);
@@ -209,16 +218,17 @@
             this.Controls.Add(this.Ajouter);
             this.Controls.Add(this.TotalTBOX);
             this.Controls.Add(this.TotalLabel);
-            this.Controls.Add(this.QuantiteTBOX);
-            this.Controls.Add(this.ProduitTBOX);
-            this.Controls.Add(this.ClientTBOX);
             this.Controls.Add(this.QuantitLabel);
             this.Controls.Add(this.ProduitLabel);
             this.Controls.Add(this.ClientLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionSales";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestion Sales";
             this.Load += new System.EventHandler(this.GestionSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SalesTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NQuantite)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,9 +239,6 @@
         private System.Windows.Forms.Label ClientLabel;
         private System.Windows.Forms.Label ProduitLabel;
         private System.Windows.Forms.Label QuantitLabel;
-        private System.Windows.Forms.TextBox ClientTBOX;
-        private System.Windows.Forms.TextBox ProduitTBOX;
-        private System.Windows.Forms.TextBox QuantiteTBOX;
         private System.Windows.Forms.Label TotalLabel;
         private System.Windows.Forms.TextBox TotalTBOX;
         private System.Windows.Forms.Button Rechercher;
@@ -244,5 +251,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantite;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prix;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.ComboBox NClient;
+        private System.Windows.Forms.ComboBox NProduit;
+        private System.Windows.Forms.NumericUpDown NQuantite;
     }
 }
