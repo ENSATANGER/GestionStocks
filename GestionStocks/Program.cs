@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
 
 namespace GestionStocks
 {
@@ -8,15 +12,40 @@ namespace GestionStocks
     {
         static async Task Main(string[] args)
         {
+            (new MDI()).ShowDialog();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             /*Produits produits = new Produits();
             produits.nom = "Samsung";
             produits.categorie = "Telephones";
             produits.description = "Samsung";
-                produits.prix = 0;
+            produits.prix = 0;
             produits.poids = 0;
             produits.quantite = 7;
-            Console.WriteLine(Produits.collection);*/
-            (new MDI()).ShowDialog();
+            Console.WriteLine(Produits.collection);
+            List<Produits> lp = produits.select();
+            foreach(Produits produit in lp) { Console.WriteLine(produit); }*/
+
+
+
             /*Categorie categorie = new Categorie( "Informatique", "pc + écran + clavier");
             *//*await categorie.Create();*//*
 
@@ -33,6 +62,10 @@ namespace GestionStocks
             {
                 Console.WriteLine(result.nom + ": " + result.description);
             }*/
+
+            /*Produits p = Produits.searchByName("sd");
+            Console.WriteLine(p.prix.ToString());*/
+            Console.ReadLine();
         }
     }
 }

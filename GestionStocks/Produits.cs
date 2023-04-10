@@ -79,6 +79,13 @@ namespace GestionStocks
             return result.ToList();
         }
 
+        public static Produits searchByName(string nom)
+        {
+            var regex = new BsonRegularExpression(".*" + nom + ".*", "i");
+            var filter = Builders<Produits>.Filter.Regex("nom", regex);
+            var result = collection.Find(filter).FirstOrDefault();
+            return result;
+        }
 
     }
 }

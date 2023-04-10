@@ -136,5 +136,20 @@ namespace GestionStocks
         {
 
         }
+
+        private void GestionCategories_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CategoriesTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void NomText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

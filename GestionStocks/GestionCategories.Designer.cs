@@ -68,6 +68,7 @@
             this.NomText.Name = "NomText";
             this.NomText.Size = new System.Drawing.Size(198, 20);
             this.NomText.TabIndex = 2;
+            this.NomText.TextChanged += new System.EventHandler(this.NomText_TextChanged);
             // 
             // DescriptionText
             // 
@@ -130,6 +131,7 @@
             this.CategoriesTable.Size = new System.Drawing.Size(535, 177);
             this.CategoriesTable.TabIndex = 8;
             this.CategoriesTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategoriesTable_CellClick);
+            this.CategoriesTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategoriesTable_CellContentClick);
             // 
             // NomCategories
             // 
@@ -181,7 +183,7 @@
             this.Name = "GestionCategories";
             this.ShowIcon = false;
             this.Text = "GestionCategories";
-            
+            this.Load += new System.EventHandler(this.GestionCategories_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.CategoriesTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

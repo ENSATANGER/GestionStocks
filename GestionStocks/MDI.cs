@@ -40,5 +40,10 @@ namespace GestionStocks
         {
             new GestionClients(this).Show();
         }
+
+        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new GestionSales(this)).Show();
+        }
     }
 }
