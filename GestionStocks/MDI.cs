@@ -35,5 +35,10 @@ namespace GestionStocks
             // Display the new form.
             newMDIChild.Show();
         }
+
+        private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new GestionClients(this).Show();
+        }
     }
 }
